@@ -1,5 +1,8 @@
 package hellojpa;
 
+import hellojpa.domain.Book;
+import hellojpa.domain.Movie;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,13 +20,11 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Movie movie = new Movie();
-            movie.setDirector("aaaa");
-            movie.setActor("bbbb");
-            movie.setName("바람과 함께 사라지다.");
-            movie.setPrice(10000);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
 
-            em.persist(movie);
+            em.persist(book);
 
             tx.commit();
         } catch (Exception e) {
