@@ -1,23 +1,26 @@
 package hellojpa.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Member extends BaseEntity{
+public class Member {
 
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
 
-    private String name;
-    private String city;
-    private String street;
-    private String zipcode;
-    private List<Order> orders = new ArrayList<>();
+    @Column(name = "USERNAME")
+    private String username;
+
+    @Embedded
+    private Period workPeriod;
+
+    @Embedded
+    private Address homeAddress;
+
 }
